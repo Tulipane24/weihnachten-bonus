@@ -1,0 +1,9 @@
+{
+  "name": "weihnachten-weitererzaehlen-bonus",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page for the Weihnachten weitererzählen bonus printables",
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weihnachtsvorlagen für die Familie</title>
+<meta name="description" content="Kostenlose Weihnachtsvorlagen für Leserinnen und Leser von „Weihnachten weitererzählen“: Erlebnisliste, Schildchen für den Anhänger des Jahres und Geschenkkärtchen.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap">
+<style>
+/* Layout: a candlelit fir-green page like the cover, with soft snow from the village window and twinkling straw-star gold; cover on one side, the cream "gift tag" form on the other; stacks on phones */
+:root{
+  --green:#3E7D60; --green-mid:#2F6B52; --green-deep:#1F4D3B; --gold:#D4AE62; --gold-soft:#F0DCA4;
+  --cream:#FBF6EC; --ink:#2E2A22; --ink-soft:#5E5848; --fir:#2F6B52; --fir-hover:#3E7D60;
+  --cranberry:#A3283A; --cranberry-hover:#BB3346; --muted:#DDEBDF; --line:#D8CCB2;
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body:"Lora", Georgia, "Times New Roman", serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{margin:0}
+body{
+  min-height:100vh;
+  background:var(--green-deep) radial-gradient(ellipse 90% 70% at 28% 36%, #4B8C6C 0%, var(--green) 30%, var(--green-mid) 62%, var(--green-deep) 100%);
+  color:var(--cream); font-family:var(--body); font-size:17px; line-height:1.6;
+  padding-left:max(16px, env(safe-area-inset-left, 0px)); padding-right:max(16px, env(safe-area-inset-right, 0px));
+  padding-block:max(28px, env(safe-area-inset-top, 0px)) 40px;
+}
+canvas#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:1040px;margin:0 auto;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1.1fr);gap:48px;align-items:center;min-height:calc(100vh - 68px)}
+.cover{justify-self:center;max-width:340px;width:100%}
+.cover img{display:block;width:100%;height:auto;border-radius:3px;box-shadow:0 18px 50px rgba(12,40,28,.5),0 0 0 1px rgba(212,174,98,.55),0 0 60px rgba(240,220,164,.16)}
+.cover p{margin:14px 0 0;text-align:center;font-size:14px;color:var(--muted);font-style:italic}
+.eyebrow{font-family:var(--body);font-size:12.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin:0 0 10px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(36px,5.2vw,56px);line-height:1.04;margin:0 0 14px;color:var(--cream);text-wrap:balance;text-shadow:0 2px 18px rgba(12,40,28,.5)}
+h1 em{font-style:italic;font-weight:500;color:var(--gold-soft)}
+.lede{margin:0 0 20px;color:var(--cream);max-width:34em}
+.inside{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:8px}
+.inside li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;align-items:baseline;color:var(--cream)}
+.inside li::before{content:"";width:10px;height:10px;border:1.5px solid var(--gold);border-radius:50%;transform:translateY(1px)}
+.inside b{font-weight:500;color:var(--gold-soft)}
+.tag{position:relative;background:var(--cream);color:var(--ink);border-radius:6px 6px 6px 6px;padding:26px 26px 22px 30px;box-shadow:0 14px 40px rgba(12,40,28,.42),inset 0 0 0 1px var(--line),inset 0 0 0 6px var(--cream),inset 0 0 0 7px rgba(212,174,98,.6)}
+.tag::before{content:"";position:absolute;left:-9px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;background:var(--green-mid);box-shadow:inset 0 0 0 2px var(--gold)}
+.tag h2{font-family:var(--display);font-weight:600;font-size:27px;line-height:1.15;margin:0 0 6px;color:var(--fir);text-wrap:balance}
+.tag .sub{margin:0 0 16px;font-size:15px;color:var(--ink-soft)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:grid;gap:4px;min-width:0}
+label{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--fir)}
+input[type=text],input[type=email]{width:100%;font:inherit;font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:4px;padding:10px 12px}
+input:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold)}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+button{margin-top:16px;width:100%;font:inherit;font-weight:500;font-size:17px;color:var(--cream);background:var(--cranberry);border:0;border-radius:4px;padding:13px 16px;cursor:pointer;transition:background .2s;box-shadow:0 2px 0 rgba(0,0,0,.12)}
+button:hover{background:var(--cranberry-hover)}
+button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button[disabled]{opacity:.7;cursor:progress}
+.privacy{margin:12px 0 0;font-size:13px;line-height:1.5;color:var(--ink-soft)}
+.error{margin:12px 0 0;font-size:14px;color:var(--cranberry)}
+.done{text-align:left}
+.done h2{color:var(--fir)}
+.dl{display:block;margin-top:14px;text-align:center;text-decoration:none;font-weight:500;color:var(--cream);background:var(--fir);border-radius:4px;padding:13px 16px}
+.dl:hover{background:var(--fir-hover)}
+.dl:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.note{margin:12px 0 0;font-size:14px;color:var(--ink-soft)}
+.consent{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px;align-items:start;margin-top:14px;font-size:14px;line-height:1.45;color:var(--ink);text-transform:none;letter-spacing:0}
+.consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--fir)}
+footer{position:relative;z-index:1;max-width:1040px;margin:28px auto 0;text-align:center;font-size:13px;color:var(--muted)}
+@media (max-width:760px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:28px;min-height:0}
+  .cover{max-width:220px}
+  .row{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:reduce){canvas#snow{display:none}}
+</style>
+</head>
+<body>
+<canvas id="snow" aria-hidden="true"></canvas>
+<main class="wrap">
+  <figure class="cover">
+    <img src="cover.jpg" width="520" height="780" alt="Cover von „Weihnachten weitererzählen: Das Erinnerungsbuch für die ganze Familie“ von Annelie Hartwig">
+    <p>Ein kostenloser Begleiter zu deinem Buch</p>
+  </figure>
+
+  <section>
+    <p class="eyebrow">Für Leserinnen und Leser von „Weihnachten weitererzählen“</p>
+    <h1>Weihnachtsvorlagen <em>für die Familie</em></h1>
+    <p class="lede">Sechs Seiten zum Ausdrucken, die du Jahr für Jahr zusammen mit deinem Buch verwenden kannst.</p>
+    <ul class="inside">
+      <li><span><b>Unsere Weihnachts-Erlebnisliste</b>: 48 Ideen zum gemeinsamen Abhaken und eine leere Liste für eure eigenen</span></li>
+      <li><span><b>Schildchen für den Anhänger des Jahres</b>: 16 Schildchen, damit jeder Christbaumanhänger seine Geschichte weitergibt</span></li>
+      <li><span><b>Geschenkkärtchen</b>: zwei Kärtchen zum Hineinlegen, wenn du das Buch verschenkst</span></li>
+    </ul>
+
+    <div class="tag">
+      <form id="form" novalidate>
+        <h2>Hol dir deine Vorlagen</h2>
+        <p class="sub">Trag dich kurz ein, und der Download öffnet sich direkt hier.</p>
+        <div class="row">
+          <div class="field"><label for="nome">Vorname</label><input id="nome" name="nome" type="text" autocomplete="given-name" required maxlength="80"></div>
+          <div class="field"><label for="cognome">Nachname</label><input id="cognome" name="cognome" type="text" autocomplete="family-name" required maxlength="80"></div>
+        </div>
+        <div class="field" style="margin-top:12px"><label for="email">E-Mail</label><input id="email" name="email" type="email" autocomplete="email" required maxlength="160"></div>
+        <div class="hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <label class="consent" for="newsletter"><input id="newsletter" name="newsletter" type="checkbox"><span>Ja, schickt mir gelegentlich Neuigkeiten zu diesem Buch und zu neuen Vorlagen von Annelie Hartwig (freiwillig, jederzeit abbestellbar).</span></label>
+        <button id="submit" type="submit">Vorlagen freischalten</button>
+        <p id="error" class="error" role="alert" hidden></p>
+        <p class="privacy">Deinen Namen und deine E-Mail-Adresse verwenden wir, um dir diesen Download bereitzustellen. Neuigkeiten bekommst du nur, wenn du das Kästchen oben ankreuzt. Du kannst jederzeit verlangen, dass deine Daten gelöscht werden: Antworte einfach auf eine unserer E-Mails.</p>
+      </form>
+
+      <div id="done" class="done" hidden>
+        <h2>Deine Vorlagen sind bereit</h2>
+        <p class="sub">Danke! Öffne das PDF und drucke es auf A4-Papier in Originalgröße (100 %). Für Schildchen und Geschenkkärtchen eignet sich Fotokarton am besten.</p>
+        <a id="bonusLink" class="dl" href="#" target="_blank" rel="noopener">Weihnachtsvorlagen öffnen (PDF)</a>
+        <p class="note">Speichere den Link oder lade die Datei herunter: Sie gehört dir.</p>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Weihnachten weitererzählen · Annelie Hartwig</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('form'), done=document.getElementById('done'), err=document.getElementById('error'),
+      btn=document.getElementById('submit'), link=document.getElementById('bonusLink');
+  var EMAIL=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function showError(t){err.textContent=t;err.hidden=false;}
+  form.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    var nome=form.nome.value.trim(), cognome=form.cognome.value.trim(), email=form.email.value.trim();
+    if(!nome||!cognome){showError('Bitte gib deinen Vor- und Nachnamen ein.');return;}
+    if(!EMAIL.test(email)){showError('Bitte gib eine gültige E-Mail-Adresse ein, zum Beispiel name@beispiel.de.');return;}
+    btn.disabled=true; btn.textContent='Wird freigeschaltet…';
+    fetch('/api/submit',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({lang:'de',nome:nome,cognome:cognome,email:email,newsletter:form.newsletter.checked,website:form.website.value})})
+    .then(function(r){return r.json().catch(function(){return {ok:false};});})
+    .then(function(d){
+      if(d&&d.ok&&d.bonusUrl){link.href=d.bonusUrl;form.hidden=true;done.hidden=false;link.focus();}
+      else{showError((d&&d.error)||'Deine Angaben konnten nicht gespeichert werden. Bitte versuche es gleich noch einmal.');}
+    })
+    .catch(function(){showError('Der Server ist nicht erreichbar. Prüfe deine Verbindung und versuche es noch einmal.');})
+    .finally(function(){btn.disabled=false;btn.textContent='Vorlagen freischalten';});
+  });
+
+  // soft snow from the village window, with a few twinkling gold sparkles like the straw stars
+  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var c=document.getElementById('snow'),x=c.getContext('2d'),f=[],g=[],W,H;
+  function size(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  size();addEventListener('resize',size);
+  for(var i=0;i<70;i++)f.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.7+.5,s:Math.random()*.45+.18,d:Math.random()*.5-.25});
+  for(var k=0;k<14;k++)g.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+1.4,t:Math.random()*6.283,v:Math.random()*.02+.01});
+  (function tick(){x.clearRect(0,0,W,H);x.fillStyle='rgba(251,246,236,.75)';
+    for(var i=0;i<f.length;i++){var p=f[i];p.y+=p.s;p.x+=p.d;if(p.y>H){p.y=-4;p.x=Math.random()*W;}
+      x.beginPath();x.arc(p.x,p.y,p.r,0,6.283);x.fill();}
+    for(var k=0;k<g.length;k++){var q=g[k];q.t+=q.v;var a=Math.max(0,Math.sin(q.t))*.7;if(a<.01&&Math.random()<.02){q.x=Math.random()*W;q.y=Math.random()*H;}
+      var gr=x.createRadialGradient(q.x,q.y,0,q.x,q.y,q.r*4);gr.addColorStop(0,'rgba(240,220,164,'+a+')');gr.addColorStop(1,'rgba(240,220,164,0)');
+      x.fillStyle=gr;x.beginPath();x.arc(q.x,q.y,q.r*4,0,6.283);x.fill();x.fillStyle='rgba(251,246,236,.75)';}
+    requestAnimationFrame(tick);})();
+})();
+</script>
+</body>
+</html>
